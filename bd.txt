@@ -1,0 +1,47 @@
+CREATE DATABASE tiendita;
+USE tiendita;
+
+--  Cliente 
+CREATE TABLE cliente (
+    idcliente INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    apellido VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    telefono VARCHAR(20),
+    direccion VARCHAR(255),
+    fecha_registro DATE,
+    username VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Empleado
+CREATE TABLE empleado (
+    idempleado INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    apellido VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    telefono VARCHAR(20),
+    cargo ENUM('Vendedor', 'Gerente'),  -- Solo dos opciones: 'Vendedor' o 'Gerente'
+    fecha_contratacion DATE,
+    salario DECIMAL(10, 2)
+    username VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Producto
+CREATE TABLE producto (
+    idproducto INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    descripcion TEXT,
+    precio DECIMAL(10, 2),
+    stock INT,
+    idcategoria INT,  -- Relación con la tabla 'categoria'
+    idproveedor INT,  -- Relación con la tabla 'proveedor'
+    fecha_registro DATE,
+   
+);
+
+-INSERT INTO empleado (nombre, apellido, email, telefono, cargo, fecha_contratacion, salario, username, password)
+VALUES ('Juan', 'Pérez', 'juan.perez@example.com', '1234567890', 'Vendedor', '2024-01-15', 2600.00, 'daniel', 'quenta');
+INSERT INTO empleado (nombre, apellido, email, telefono, cargo, fecha_contratacion, salario, username, password)
+VALUES ('Juan', 'Pérez', 'juan.perez@example.com', '1234567890', 'Vendedor', '2024-01-15', 2600.00, 'daniel', 'quenta');
